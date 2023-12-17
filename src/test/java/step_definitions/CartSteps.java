@@ -18,9 +18,8 @@ public class CartSteps {
     }
 
     @When("User remove {string} from the cart")
-    public void removeProduct (String product) throws InterruptedException {
-        cartPage.removeProduct(product);
-        Thread.sleep(1000);
+    public void removeProduct (String product) {
+        cartPage.removeProduct(product);;
     }
 
     @And("User click checkout button")

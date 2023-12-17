@@ -2,13 +2,13 @@
 Feature: Login
   User wants to log in to website sauce demo
 
-#  @TC1
-#  Scenario: User log in with valid credential
-#    Given User already on login page
-#    When User input "standard_user" as username
-#    And User input "secret_sauce" as password
-#    And User click button login
-#    Then User will be redirected to inventory page
+  @TC1
+  Scenario: User log in with valid credential
+    Given User already on login page
+    When User input "standard_user" as username
+    And User input "secret_sauce" as password
+    And User click button login
+    Then User will be redirected to inventory page
 
   @TC2
   Scenario: User login with valid credential

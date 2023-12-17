@@ -23,15 +23,13 @@ public class InventorySteps {
     }
 
     @When("User click product {string} as product")
-    public void clickProduct(String product) throws InterruptedException {
+    public void clickProduct(String product) {
         inventoryPage.clickAddToCartProduct(product);
-        Thread.sleep(1000);
     }
 
     @Then("Verify the number of products in cart is {string}")
-    public void verifyNumberOfProduct(String jumlah) throws InterruptedException {
+    public void verifyNumberOfProduct(String jumlah) {
         Assert.assertEquals(inventoryPage.getCountProducts(), jumlah);
-        Thread.sleep(1000);
     }
 
 
@@ -41,9 +39,8 @@ public class InventorySteps {
     }
 
     @Then("User will be redirected to cart page")
-    public void verifyCartPage() throws InterruptedException {
+    public void verifyCartPage() {
         Assert.assertTrue(inventoryPage.verifyCartPage());
-        Thread.sleep(1000);
     }
 
 

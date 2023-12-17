@@ -13,9 +13,8 @@ public class COOverviewSteps {
     COOverviewPage cooverviewpage = new COOverviewPage(driver);
 
     @Then("User will be redirected on Checkout Overview Page")
-    public void verifyOnCOOverviewPage () throws InterruptedException {
+    public void verifyOnCOOverviewPage () {
         Assert.assertTrue(cooverviewpage.verifyCOOverviewPage());
-        Thread.sleep(1000);
     }
 
     @And("Verify the price product {string} in cart list descriptions should be equal to item total")

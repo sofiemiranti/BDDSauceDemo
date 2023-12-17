@@ -12,17 +12,15 @@ public class COInformationSteps {
     COInformationPage coinformationpage = new COInformationPage(driver);
 
     @Then("User has already on 'Checkout Information' page")
-    public void verifyOnCOPage () throws InterruptedException {
+    public void verifyOnCOPage () {
         Assert.assertTrue(coinformationpage.verifyLabelPage());
-        Thread.sleep(1000);
     }
 
     @When("User input {string} in first name field, {string} in last name field, and {string} in postal code field")
-    public void inputInformation (String first, String last, String code) throws InterruptedException {
+    public void inputInformation (String first, String last, String code) {
         coinformationpage.inputFirstName(first);
         coinformationpage.inputLastName(last);
         coinformationpage.inputPostalCode(code);
-        Thread.sleep(2000);
     }
 
     @And("User click continue button")

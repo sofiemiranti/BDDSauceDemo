@@ -18,15 +18,6 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.verifyPasswordField());
     }
 
-//    @When("User input {string} as username")
-//    public void inputFieldUserName(String userName){
-//        loginPage.inputUsernameField(userName);
-//    }
-//
-//    @And ("User input {string} as password")
-//    public void inputFieldPassword(String password){
-//        loginPage.inputFieldPassword(password);
-//    }
 
     @When("User input {string} as username and {string} as password")
     public void credential(String userName, String password){
@@ -35,24 +26,13 @@ public class LoginSteps {
         loginPage.clickLoginButton();
     }
 
-//    @And("User click login button")
-//    public void clickLoginButton(){
-//        loginPage.clickLoginButton();
-//    }
-
     @Then("User will be redirected to inventory page")
     public void verifyToInventoryPage(){
         Assert.assertTrue(loginPage.verifyInventoryPage());
     }
 
     @Then("User will see error message {string} on login page")
-    public void verifyLabelErrorText(String errorText) throws InterruptedException {
+    public void verifyLabelErrorText(String errorText) {
         Assert.assertEquals(loginPage.getErrorTextLabel(),errorText);
-        Thread.sleep(3000);
     }
-
-//    public void verifyTotal (String x){
-//
-//    }
-
 }

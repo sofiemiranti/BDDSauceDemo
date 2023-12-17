@@ -10,8 +10,7 @@ public class COCompleteSteps {
     COCompletePage cocompletePage = new COCompletePage(driver);
 
     @Then("User will successfully purchasing")
-    public void verifyCOComplete () throws InterruptedException {
+    public void verifyCOComplete () {
         Assert.assertTrue(cocompletePage.verifyCOComplete());
-        Thread.sleep(3000);
     }
 }
