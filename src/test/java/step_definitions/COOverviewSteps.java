@@ -18,31 +18,30 @@ public class COOverviewSteps {
         Thread.sleep(1000);
     }
 
-    @And("Verify the price product {string} should be equal to total price")
+    @And("Verify the price product {string} in cart list descriptions should be equal to item total")
     public void verifyPrice (String product){
-        String actualText = cooverviewpage.getFinalPriceProduct();
         String expectedValue = cooverviewpage.getPriceProduct(product);
+        String actualText = cooverviewpage.getItemTotal();
         String actualValue = actualText.substring(actualText.indexOf(expectedValue));
-
         Assert.assertEquals(expectedValue, actualValue);
     }
 
-    @And("Verify the tax value should be equal to 8% from total price")
-    public void verifyTax () {
-        String Tax = cooverviewpage.getTax();
-        String TaxValue = StringUtils.getDigits(Tax);
-        double taxValue = Double.parseDouble(TaxValue) / 100.00;
-        String taxvalue = Double.toString(taxValue);
-        Assert.assertEquals(cooverviewpage.perhitunganTax(),taxvalue);
+    @And("Verify the tax value displayed should be equal to 8% from total price which is {string}")
+    public void verifyTax (String tax) {
+        String stringTax = cooverviewpage.getTax();
+        String stringTaxValue = StringUtils.getDigits(stringTax);
+        double taxValue = Double.parseDouble(stringTaxValue) / 100.00;
+        String taxValueActual = Double.toString(taxValue);
+        Assert.assertEquals(cooverviewpage.calculationOfTax(),taxValueActual, tax);
     }
 
-    @And("Verify total payment should be equal to total product price plus tax")
+    @And("Verify total payment should be equal to item total plus tax")
     public void verifyTotal () {
-        String Total = cooverviewpage.getTotal();
-        String TotalValue = StringUtils.getDigits(Total);
-        double totalValue = Double.parseDouble(TotalValue) / 100 ;
-        String totalvalue = Double.toString(totalValue);
-        Assert.assertEquals(cooverviewpage.perhitunganTotalCheckout(),totalvalue);
+        String stringTotal = cooverviewpage.getTotal();
+        String stringTotalValue = StringUtils.getDigits(stringTotal);
+        double totalValue = Double.parseDouble(stringTotalValue) / 100 ;
+        String totalValueActual = Double.toString(totalValue);
+        Assert.assertEquals(cooverviewpage.calculationOfCheckoutTotal(),totalValueActual);
     }
 
     @When("User click finish button")

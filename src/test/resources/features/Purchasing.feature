@@ -3,7 +3,7 @@ Feature: Purchasing
   User wants to purchasing products in Swag Labs
 
   @TC4
-  Scenario Outline: User adds the products to cart
+  Scenario Outline: User purchases a product in Swag Labs
     Given User has already on login page
     When User input "<userName>" as username and "<password>" as password
     Then User will be redirected to inventory page
@@ -22,11 +22,11 @@ Feature: Purchasing
     When User input "<firstname>" in first name field, "<lastname>" in last name field, and "<code>" in postal code field
     And User click continue button
     Then User will be redirected on Checkout Overview Page
-    And Verify the price product "<productName1>" should be equal to total price
-    And Verify the tax value should be equal to 8% from total price
-    And Verify total payment should be equal to total product price plus tax
+    And Verify the price product "<productName1>" in cart list descriptions should be equal to item total
+    And Verify the tax value displayed should be equal to 8% from total price which is "<tax>"
+    And Verify total payment should be equal to item total plus tax
     When User click finish button
     Then User will successfully purchasing
     Examples:
-      | userName      | password     | filter              | productName1      | countProduct1 | productName2          | countProduct2 | firstname | lastname | code  |
-      | standard_user | secret_sauce | Price (low to high) | Sauce Labs Onesie | 1             | Sauce Labs Bike Light | 2             | Sofie     | Miranti  | 33333 |
+      | userName      | password     | filter              | productName1      | countProduct1 | productName2          | countProduct2 | firstname | lastname | code  | tax  |
+      | standard_user | secret_sauce | Price (low to high) | Sauce Labs Onesie | 1             | Sauce Labs Bike Light | 2             | Sofie     | Miranti  | 33333 | 0.64 |
