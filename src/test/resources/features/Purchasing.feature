@@ -13,7 +13,7 @@ Feature: Purchasing
     Then Verify the number of products in cart is "<countProduct1>"
     When User click product "<productName2>" as product
     Then Verify the number of products in cart is "<countProduct2>"
-    And User click cart button to go to cart page
+    When User click cart button to go to cart page
     Then User will be redirected to cart page
     And Product "<productName1>" and "<productName2>" will be displayed in item list
     When User remove "<productName2>" from the cart

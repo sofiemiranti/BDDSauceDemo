@@ -33,7 +33,7 @@ public class InventorySteps {
     }
 
 
-    @And("User click cart button to go to cart page")
+    @When("User click cart button to go to cart page")
     public void clickCartButton() {
         inventoryPage.openCart();
     }
